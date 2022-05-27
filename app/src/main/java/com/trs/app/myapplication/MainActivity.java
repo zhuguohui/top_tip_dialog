@@ -20,18 +20,26 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     boolean isWifi;
+    private MyFragment myFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
-
     public void showDialog(View view) {
+        if(myFragment==null) {
+            myFragment = new MyFragment();
+        }
+        myFragment.show(getSupportFragmentManager(),"");
+
+    }
+
+
+  /*  public void showDialog(View view) {
         isWifi=!isWifi;
 
         TopTipUtil.showInfo(this, isWifi?"正在使用WIFI":"正在使用移动网络");
 
-    }
+    }*/
 }
